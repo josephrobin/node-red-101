@@ -1,0 +1,26 @@
+version: '3.5'
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: nodered
+    volumes:
+      - ./node-red-data:/data
+    ports:
+      - 1880:1880
+  # influxdb:
+  #   image: influxdb:latest
+  #   container_name: influxdb
+  #   volumes:
+  #     - ./influxdb-data:/var/lib/influxdb2
+  #   ports:
+  #     - 8086:8086
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: mqtt5
+    ports:
+      - 1993:1883 #default mqtt port
+      - 9001:9001 #default mqtt port for websockets
+    volumes:
+      - ./mqtt/config:/mosquitto/config:rw
+      - ./mqtt/data:/mosquitto/data:rw
+      - ./mqtt/log:/mosquitto/log:rw

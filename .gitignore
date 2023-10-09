@@ -1,0 +1,7 @@
+.vscode
+influxdb-data/engine
+influxdb-data/influxd.bolt
+influxdb-data/influxd.sqlite
+mqtt/data/*
+mqtt/log/*
+node_modules
